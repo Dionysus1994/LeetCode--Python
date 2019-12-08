@@ -47,29 +47,12 @@
 # @lc code=start
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        #状态机 dp[buy][sell][rest] 
-        #判断何时买，何时卖，何时保持即可。
-        #此题 buy = sell
+        maxprofit = 0
+        
+        for i in range(1,len(prices)):
+            if prices[i] > prices[i - 1]:#只要明天股价高于今天，便买入
+                maxprofit += prices[i] - prices[i - 1]#买入
+        return maxprofit
 
-        #第一天只能买， 最后一天只能卖
-        min1 = float("inf")
-        buy = 0
-        rest = 0
-        sell = 0
-        #只交易一次的最大利润
-        for n in prices:
-            if n < min1: # 当价格最低时，买入股票
-                min1 = n#买入股票
-            #max1记录当前最大利润
-            #当一次交易利润最高时卖出
-            max1 = max(max1,n - min1)
-
-        #
-        for i in range(0,len(prices)):
-            min2 = prices[i] - min2
-            if  min2 > 0
-                max2 =  
-
-        return max3
 # @lc code=end
 
